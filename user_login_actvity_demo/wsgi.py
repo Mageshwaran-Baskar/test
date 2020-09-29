@@ -8,11 +8,11 @@ https://docs.djangoproject.com/en/2.0/howto/deployment/wsgi/
 """
 
 import os
-
+from dj_static import Cling
+from whitenoise.django import DjangoWhiteNoise
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "user_login_actvity_demo.settings")
 
 application = get_wsgi_application()
-
-from dj_static import Cling
+application = DjangoWhiteNoise(application)
